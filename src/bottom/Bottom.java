@@ -54,7 +54,8 @@ public class Bottom {
         
         // Här skapar vi spelplanen som består av 4x4 knappar
         JButton[][] buttons = new JButton[4][4];
-        //ActionListener buttonListener = new ButtonListener(buttons);
+        // Här skapar vi en generisk lyssnare som sedan placeras på alla knappar i loopen
+        ActionListener buttonListener = new ButtonListener(buttons);
         for (int i = 0; i < numbers.length; i++) {
             for (int j = 0; j < numbers[i].length; j++) {
                 int number = numbers[i][j];
@@ -69,7 +70,7 @@ public class Bottom {
                     btn.setBackground(Color.red);
                 }
                 btn.setName(Integer.toString(number));
-                //btn.addActionListener(buttonListener);
+                btn.addActionListener(buttonListener);
                 p1.add(btn);
                 buttons[i][j] = btn;
             }
